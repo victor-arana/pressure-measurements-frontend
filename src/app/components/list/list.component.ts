@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PressureMeasurementsService } from '../../services/pressure-measurements.service'
 
 @Component({
   selector: 'app-list',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  measurements: any;
+
+  constructor(private measurementsService: PressureMeasurementsService) { }
 
   ngOnInit(): void {
+    this.retrieveMeasurements();
+  }
+
+  retrieveMeasurements(): void {
+    this.measurementsService.getAll()
+      .subscribe(
+        data => {
+          this.measurements = data;
+          console.log(data);          
+        }
+      )
   }
 
 }

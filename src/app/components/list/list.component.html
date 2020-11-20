@@ -1,1 +1,18 @@
-<p>list works!</p>
+<table class="table table-hover" >
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Systolic</th>
+            <th>Diastolic</th>
+            <th>Hear rate</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let m of measurements">
+            <td>{{ m.dateTime }}</td>
+            <td>{{ m.systolicPressure }}</td>
+            <td>{{ m.diastolicPressure }}</td>
+            <td>{{ m.heartRate }}</td>
+        </tr>    
+    </tbody>
+</table>
